@@ -23,6 +23,8 @@ public class SepedaMain {
     }
     static void menu(){
         System.out.println("Pilih Sepeda Motor");
+        int index = 0;
+        String motor = "";
         for(int i=0;i<spdMtr.length;i++){
             System.out.println((i+1) + " " + spdMtr[i].merk);
         }
@@ -30,18 +32,25 @@ public class SepedaMain {
         System.out.print("[1-4] o> ");
         int option = sc.nextInt();
         
+        for(int i=0;i<spdMtr.length;i++){
+            if(option-1 == i){
+                index = 0;
+                motor = spdMtr[i].merk;
+            }
+        }
+        
         switch(option){
             case 1:
-                spd(spdMtr[0].merk);
+                spd(spdMtr[index].merk);
                 break;
             case 2:
-                spd(spdMtr[1].merk);
+                spd(spdMtr[index].merk);
                 break;
             case 3:
-                spd(spdMtr[2].merk);
+                spd(spdMtr[index].merk);
                 break;
             case 4:
-                spd(spdMtr[3].merk);
+                spd(spdMtr[index].merk);
                 break;
             default:
                 System.out.println("Tidak ada pilihan");
@@ -62,7 +71,7 @@ public class SepedaMain {
         System.out.print("o> ");
         int opMtr = sc.nextInt();
         if(opMtr == 0){
-            mnMtr.matikanMotor(true);
+            mnMtr.nyalakanMotor(true);
             mnMtr.info();
             spd(motor);
         }else if(opMtr == 1){
